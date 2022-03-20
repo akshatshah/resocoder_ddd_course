@@ -55,7 +55,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         password: passwordString,
       );
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
@@ -78,7 +78,9 @@ class FirebaseAuthFacade implements IAuthFacade {
           accessToken: googleAuthentication.accessToken);
       await _firebaseAuth.signInWithCredential(authCredential);
       return right(unit);
-    } catch (e) {
+    } on FirebaseAuthException catch (_) {
+      return left(const AuthFailure.serverError());
+    } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
     }
   }

@@ -19,7 +19,7 @@ class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
-    return Password._(validateEmailAddress(input));
+    return Password._(validatePassword(input));
   }
 
   const Password._(

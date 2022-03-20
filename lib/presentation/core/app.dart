@@ -5,9 +5,24 @@ class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Material App',
-      home: SignInPage(),
+    return MaterialApp(
+      title: 'Notes',
+      home: const SignInPage(),
+      theme: ThemeData.light().copyWith(
+        primaryColor: Colors.green.shade800,
+        colorScheme: const ColorScheme.light().copyWith(
+          primary: Colors.green.shade800,
+          secondary: Colors.blueAccent,
+        ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.green.shade800,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      ),
     );
   }
 }
