@@ -11,3 +11,5 @@ class UnexpectedValueError extends Error {
         'Encountered A ValueFailure at an  unrecoverable point. Terminating. Failure was: $valueFailure');
   }
 }
+
+class NotAuthenticatedError extends Error {}
