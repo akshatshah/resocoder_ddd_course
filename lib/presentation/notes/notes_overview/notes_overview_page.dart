@@ -6,6 +6,7 @@ import 'package:resocoder_ddd_course/application/auth/auth_bloc.dart';
 import 'package:resocoder_ddd_course/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:resocoder_ddd_course/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:resocoder_ddd_course/injection.dart';
+import 'package:resocoder_ddd_course/presentation/notes/notes_overview/widgets/incompleted_switch.dart';
 import 'package:resocoder_ddd_course/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:resocoder_ddd_course/presentation/routes/router.dart';
 
@@ -62,10 +63,7 @@ class NotesOverviewPage extends StatelessWidget {
               },
             ),
             actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.indeterminate_check_box),
-              ),
+              IncompletedSwitch(),
             ],
           ),
           floatingActionButton: FloatingActionButton(

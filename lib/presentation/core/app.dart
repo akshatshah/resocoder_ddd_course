@@ -24,6 +24,7 @@ class AppWidget extends StatelessWidget {
         title: 'Notes',
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
+        debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Colors.blue.shade900,
