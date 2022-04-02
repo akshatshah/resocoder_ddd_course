@@ -18,6 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NoteFormEventTearOff {
   const _$NoteFormEventTearOff();
 
+  _Initialized initialized(Note? note) {
+    return _Initialized(
+      note,
+    );
+  }
+
   _BodyChanged bodyChanged(String bodyStr) {
     return _BodyChanged(
       bodyStr,
@@ -29,6 +35,16 @@ class _$NoteFormEventTearOff {
       color,
     );
   }
+
+  _TodosChanged todosChanged(KtList<TodoItemPrimitive> todos) {
+    return _TodosChanged(
+      todos,
+    );
+  }
+
+  _Saved saved() {
+    return const _Saved();
+  }
 }
 
 /// @nodoc
@@ -38,39 +54,57 @@ const $NoteFormEvent = _$NoteFormEventTearOff();
 mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Note? note) initialized,
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodosChanged value) todosChanged,
+    required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,6 +125,170 @@ class _$NoteFormEventCopyWithImpl<$Res>
   final NoteFormEvent _value;
   // ignore: unused_field
   final $Res Function(NoteFormEvent) _then;
+}
+
+/// @nodoc
+abstract class _$InitializedCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
+  $Res call({Note? note});
+
+  $NoteCopyWith<$Res>? get note;
+}
+
+/// @nodoc
+class __$InitializedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
+
+  @override
+  _Initialized get _value => super._value as _Initialized;
+
+  @override
+  $Res call({
+    Object? note = freezed,
+  }) {
+    return _then(_Initialized(
+      note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note?,
+    ));
+  }
+
+  @override
+  $NoteCopyWith<$Res>? get note {
+    if (_value.note == null) {
+      return null;
+    }
+
+    return $NoteCopyWith<$Res>(_value.note!, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Initialized implements _Initialized {
+  const _$_Initialized(this.note);
+
+  @override
+  final Note? note;
+
+  @override
+  String toString() {
+    return 'NoteFormEvent.initialized(note: $note)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Initialized &&
+            const DeepCollectionEquality().equals(other.note, note));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(note));
+
+  @JsonKey(ignore: true)
+  @override
+  _$InitializedCopyWith<_Initialized> get copyWith =>
+      __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Note? note) initialized,
+    required TResult Function(String bodyStr) bodyChanged,
+    required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() saved,
+  }) {
+    return initialized(note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
+    TResult Function(String bodyStr)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
+  }) {
+    return initialized?.call(note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
+    TResult Function(String bodyStr)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(note);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodosChanged value) todosChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized implements NoteFormEvent {
+  const factory _Initialized(Note? note) = _$_Initialized;
+
+  Note? get note;
+  @JsonKey(ignore: true)
+  _$InitializedCopyWith<_Initialized> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -157,8 +355,11 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Note? note) initialized,
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() saved,
   }) {
     return bodyChanged(bodyStr);
   }
@@ -166,8 +367,11 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
   }) {
     return bodyChanged?.call(bodyStr);
   }
@@ -175,8 +379,11 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (bodyChanged != null) {
@@ -188,8 +395,11 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodosChanged value) todosChanged,
+    required TResult Function(_Saved value) saved,
   }) {
     return bodyChanged(this);
   }
@@ -197,8 +407,11 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
   }) {
     return bodyChanged?.call(this);
   }
@@ -206,8 +419,11 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (bodyChanged != null) {
@@ -291,8 +507,11 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Note? note) initialized,
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() saved,
   }) {
     return colorChanged(color);
   }
@@ -300,8 +519,11 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
   }) {
     return colorChanged?.call(color);
   }
@@ -309,8 +531,11 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (colorChanged != null) {
@@ -322,8 +547,11 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodosChanged value) todosChanged,
+    required TResult Function(_Saved value) saved,
   }) {
     return colorChanged(this);
   }
@@ -331,8 +559,11 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
   }) {
     return colorChanged?.call(this);
   }
@@ -340,8 +571,11 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (colorChanged != null) {
@@ -361,11 +595,295 @@ abstract class _ColorChanged implements NoteFormEvent {
 }
 
 /// @nodoc
+abstract class _$TodosChangedCopyWith<$Res> {
+  factory _$TodosChangedCopyWith(
+          _TodosChanged value, $Res Function(_TodosChanged) then) =
+      __$TodosChangedCopyWithImpl<$Res>;
+  $Res call({KtList<TodoItemPrimitive> todos});
+}
+
+/// @nodoc
+class __$TodosChangedCopyWithImpl<$Res>
+    extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$TodosChangedCopyWith<$Res> {
+  __$TodosChangedCopyWithImpl(
+      _TodosChanged _value, $Res Function(_TodosChanged) _then)
+      : super(_value, (v) => _then(v as _TodosChanged));
+
+  @override
+  _TodosChanged get _value => super._value as _TodosChanged;
+
+  @override
+  $Res call({
+    Object? todos = freezed,
+  }) {
+    return _then(_TodosChanged(
+      todos == freezed
+          ? _value.todos
+          : todos // ignore: cast_nullable_to_non_nullable
+              as KtList<TodoItemPrimitive>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TodosChanged implements _TodosChanged {
+  const _$_TodosChanged(this.todos);
+
+  @override
+  final KtList<TodoItemPrimitive> todos;
+
+  @override
+  String toString() {
+    return 'NoteFormEvent.todosChanged(todos: $todos)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TodosChanged &&
+            const DeepCollectionEquality().equals(other.todos, todos));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(todos));
+
+  @JsonKey(ignore: true)
+  @override
+  _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
+      __$TodosChangedCopyWithImpl<_TodosChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Note? note) initialized,
+    required TResult Function(String bodyStr) bodyChanged,
+    required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() saved,
+  }) {
+    return todosChanged(todos);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
+    TResult Function(String bodyStr)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
+  }) {
+    return todosChanged?.call(todos);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
+    TResult Function(String bodyStr)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (todosChanged != null) {
+      return todosChanged(todos);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodosChanged value) todosChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return todosChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
+  }) {
+    return todosChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (todosChanged != null) {
+      return todosChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TodosChanged implements NoteFormEvent {
+  const factory _TodosChanged(KtList<TodoItemPrimitive> todos) =
+      _$_TodosChanged;
+
+  KtList<TodoItemPrimitive> get todos;
+  @JsonKey(ignore: true)
+  _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SavedCopyWith<$Res> {
+  factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
+      __$SavedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SavedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$SavedCopyWith<$Res> {
+  __$SavedCopyWithImpl(_Saved _value, $Res Function(_Saved) _then)
+      : super(_value, (v) => _then(v as _Saved));
+
+  @override
+  _Saved get _value => super._value as _Saved;
+}
+
+/// @nodoc
+
+class _$_Saved implements _Saved {
+  const _$_Saved();
+
+  @override
+  String toString() {
+    return 'NoteFormEvent.saved()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Saved);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Note? note) initialized,
+    required TResult Function(String bodyStr) bodyChanged,
+    required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() saved,
+  }) {
+    return saved();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
+    TResult Function(String bodyStr)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
+  }) {
+    return saved?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Note? note)? initialized,
+    TResult Function(String bodyStr)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (saved != null) {
+      return saved();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodosChanged value) todosChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return saved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
+  }) {
+    return saved?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodosChanged value)? todosChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (saved != null) {
+      return saved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Saved implements NoteFormEvent {
+  const factory _Saved() = _$_Saved;
+}
+
+/// @nodoc
 class _$NoteFormStateTearOff {
   const _$NoteFormStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
+  _NoteFormState call(
+      {required Note note,
+      required bool showErrorMessages,
+      required bool isEditing,
+      required bool isSaving,
+      required Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption}) {
+    return _NoteFormState(
+      note: note,
+      showErrorMessages: showErrorMessages,
+      isEditing: isEditing,
+      isSaving: isSaving,
+      saveFailureOrSuccessOption: saveFailureOrSuccessOption,
+    );
   }
 }
 
@@ -374,37 +892,15 @@ const $NoteFormState = _$NoteFormStateTearOff();
 
 /// @nodoc
 mixin _$NoteFormState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
+  Note get note => throw _privateConstructorUsedError;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get isEditing => throw _privateConstructorUsedError;
+  bool get isSaving => throw _privateConstructorUsedError;
+  Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+
+  @JsonKey(ignore: true)
+  $NoteFormStateCopyWith<NoteFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -413,6 +909,14 @@ abstract class $NoteFormStateCopyWith<$Res> {
   factory $NoteFormStateCopyWith(
           NoteFormState value, $Res Function(NoteFormState) then) =
       _$NoteFormStateCopyWithImpl<$Res>;
+  $Res call(
+      {Note note,
+      bool showErrorMessages,
+      bool isEditing,
+      bool isSaving,
+      Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
+
+  $NoteCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -423,100 +927,185 @@ class _$NoteFormStateCopyWithImpl<$Res>
   final NoteFormState _value;
   // ignore: unused_field
   final $Res Function(NoteFormState) _then;
-}
-
-/// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$NoteFormStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  $Res call({
+    Object? note = freezed,
+    Object? showErrorMessages = freezed,
+    Object? isEditing = freezed,
+    Object? isSaving = freezed,
+    Object? saveFailureOrSuccessOption = freezed,
+  }) {
+    return _then(_value.copyWith(
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isEditing: isEditing == freezed
+          ? _value.isEditing
+          : isEditing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSaving: isSaving == freezed
+          ? _value.isSaving
+          : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NoteFailure, Unit>>,
+    ));
+  }
+
+  @override
+  $NoteCopyWith<$Res> get note {
+    return $NoteCopyWith<$Res>(_value.note, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$NoteFormStateCopyWith<$Res>
+    implements $NoteFormStateCopyWith<$Res> {
+  factory _$NoteFormStateCopyWith(
+          _NoteFormState value, $Res Function(_NoteFormState) then) =
+      __$NoteFormStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {Note note,
+      bool showErrorMessages,
+      bool isEditing,
+      bool isSaving,
+      Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
+
+  @override
+  $NoteCopyWith<$Res> get note;
+}
+
+/// @nodoc
+class __$NoteFormStateCopyWithImpl<$Res>
+    extends _$NoteFormStateCopyWithImpl<$Res>
+    implements _$NoteFormStateCopyWith<$Res> {
+  __$NoteFormStateCopyWithImpl(
+      _NoteFormState _value, $Res Function(_NoteFormState) _then)
+      : super(_value, (v) => _then(v as _NoteFormState));
+
+  @override
+  _NoteFormState get _value => super._value as _NoteFormState;
+
+  @override
+  $Res call({
+    Object? note = freezed,
+    Object? showErrorMessages = freezed,
+    Object? isEditing = freezed,
+    Object? isSaving = freezed,
+    Object? saveFailureOrSuccessOption = freezed,
+  }) {
+    return _then(_NoteFormState(
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isEditing: isEditing == freezed
+          ? _value.isEditing
+          : isEditing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSaving: isSaving == freezed
+          ? _value.isSaving
+          : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<NoteFailure, Unit>>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_NoteFormState implements _NoteFormState {
+  const _$_NoteFormState(
+      {required this.note,
+      required this.showErrorMessages,
+      required this.isEditing,
+      required this.isSaving,
+      required this.saveFailureOrSuccessOption});
+
+  @override
+  final Note note;
+  @override
+  final bool showErrorMessages;
+  @override
+  final bool isEditing;
+  @override
+  final bool isSaving;
+  @override
+  final Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'NoteFormState.initial()';
+    return 'NoteFormState(note: $note, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType &&
+            other is _NoteFormState &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality().equals(other.isEditing, isEditing) &&
+            const DeepCollectionEquality().equals(other.isSaving, isSaving) &&
+            const DeepCollectionEquality().equals(
+                other.saveFailureOrSuccessOption, saveFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isEditing),
+      const DeepCollectionEquality().hash(isSaving),
+      const DeepCollectionEquality().hash(saveFailureOrSuccessOption));
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>
+      __$NoteFormStateCopyWithImpl<_NoteFormState>(this, _$identity);
 }
 
-abstract class _Initial implements NoteFormState {
-  const factory _Initial() = _$_Initial;
+abstract class _NoteFormState implements NoteFormState {
+  const factory _NoteFormState(
+      {required Note note,
+      required bool showErrorMessages,
+      required bool isEditing,
+      required bool isSaving,
+      required Option<Either<NoteFailure, Unit>>
+          saveFailureOrSuccessOption}) = _$_NoteFormState;
+
+  @override
+  Note get note;
+  @override
+  bool get showErrorMessages;
+  @override
+  bool get isEditing;
+  @override
+  bool get isSaving;
+  @override
+  Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption;
+  @override
+  @JsonKey(ignore: true)
+  _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
