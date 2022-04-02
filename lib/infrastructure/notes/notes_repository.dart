@@ -72,7 +72,7 @@ class NoteRepository implements INoteRepository {
   Stream<Either<NoteFailure, KtList<Note>>> watchAll() async* {
     final userDoc = await _firestore.userDocument();
     yield* userDoc.noteCollection
-        .orderBy('serverTimeStamp', descending: true)
+        .orderBy('serverTimestamp', descending: true)
         .snapshots()
         .map(
           (snapshot) => right<NoteFailure, KtList<Note>>(snapshot.docs
@@ -80,7 +80,7 @@ class NoteRepository implements INoteRepository {
               .toImmutableList()),
         )
         .onErrorReturnWith((e, _) {
-      if (e is PlatformException &&
+      if (e is FirebaseException &&
           (e.message?.contains('permission-denied') ?? false)) {
         return left(const NoteFailure.insufficientPermissions());
       } else {
