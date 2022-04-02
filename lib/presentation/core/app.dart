@@ -25,6 +25,10 @@ class AppWidget extends StatelessWidget {
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
         theme: ThemeData.light().copyWith(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.blue.shade900,
+            foregroundColor: Colors.white,
+          ),
           primaryColor: Colors.green.shade800,
           colorScheme: const ColorScheme.light().copyWith(
             primary: Colors.green.shade800,

@@ -71,16 +71,15 @@ class NoteRepository implements INoteRepository {
   @override
   Stream<Either<NoteFailure, KtList<Note>>> watchAll() async* {
     final userDoc = await _firestore.userDocument();
-    yield* userDoc.noteCollection<Map<String, dynamic>>.orderBy(
-            'serverTimeStamp',
-            descending: true)
+    yield* userDoc.noteCollection
+        .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map(
-          (snapshot) => right(snapshot.docs
+          (snapshot) => right<NoteFailure, KtList<Note>>(snapshot.docs
               .map((doc) => NoteDto.fromFirestore(doc).toDomain())
               .toImmutableList()),
         )
-        .onErrorReturnWith((e) {
+        .onErrorReturnWith((e, _) {
       if (e is PlatformException &&
           (e.message?.contains('permission-denied') ?? false)) {
         return left(const NoteFailure.insufficientPermissions());
@@ -91,23 +90,29 @@ class NoteRepository implements INoteRepository {
   }
 
   @override
-  Stream<Either<NoteFailure, KtList<Note>>> watchIncompeted() async* {
+  Stream<Either<NoteFailure, KtList<Note>>> watchIncompleted() async* {
     final userDoc = await _firestore.userDocument();
-    yield* userDoc.noteCollection<Map<String, dynamic>>.orderBy(
-            'serverTimeStamp',
-            descending: true)
+    yield* userDoc.noteCollection
+        .orderBy('serverTimeStamp', descending: true)
         .snapshots()
-        .map((snapshot) => right(
-            snapshot.docs.map((doc) => NoteDto.fromFirestore(doc).toDomain())))
-        .map((notes) => right<NoteFailure, KtList<Note>>(notes
-            .where((Note note) =>
-                note.todos.getOrCrash().any((todoItem) => !todoItem.done))
-            .toImmutableList()))
-        .onErrorReturnWith((e) {
-      if (e is PlatformException &&
+        .map(
+          (snapshot) =>
+              snapshot.docs.map((doc) => NoteDto.fromFirestore(doc).toDomain()),
+        )
+        .map(
+          (notes) => right<NoteFailure, KtList<Note>>(
+            notes
+                .where((note) =>
+                    note.todos.getOrCrash().any((todoItem) => !todoItem.done))
+                .toImmutableList(),
+          ),
+        )
+        .onErrorReturnWith((e, _) {
+      if (e is FirebaseException &&
           (e.message?.contains('permission-denied') ?? false)) {
         return left(const NoteFailure.insufficientPermissions());
       } else {
+        // log.error(e.toString());
         return left(const NoteFailure.unexpected());
       }
     });

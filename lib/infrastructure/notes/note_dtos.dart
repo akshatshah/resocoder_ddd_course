@@ -67,7 +67,7 @@ class ServerTimestapConverter implements JsonConverter<FieldValue, Object> {
 
 @freezed
 abstract class TodoItemDto implements _$TodoItemDto {
-  TodoItemDto._();
+  const TodoItemDto._();
 
   const factory TodoItemDto({
     required String id,

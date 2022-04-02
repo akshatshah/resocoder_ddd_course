@@ -11,7 +11,7 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
   AuthBloc(this._authFacade) : super(const AuthState.initial()) {
-    on<AuthEvent>((event, emit) {
+    on<AuthEvent>((event, emit) async {
       event.map(
         authCheckRequested: (e) async {
           final userOption = await _authFacade.getSignedInUser();
@@ -20,8 +20,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             (a) => const AuthState.authenticated(),
           ));
         },
-        signedOut: (e) async {
-          await _authFacade.signOut();
+        signedOut: (e) {
+          //TODO: figure out why async won't work
+          _authFacade.signOut();
           emit(const AuthState.unauthenticated());
         },
       );

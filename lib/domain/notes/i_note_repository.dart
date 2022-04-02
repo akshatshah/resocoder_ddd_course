@@ -9,7 +9,7 @@ abstract class INoteRepository {
   // CUD
 
   Stream<Either<NoteFailure, KtList<Note>>> watchAll();
-  Stream<Either<NoteFailure, KtList<Note>>> watchIncompeted();
+  Stream<Either<NoteFailure, KtList<Note>>> watchIncompleted();
   Future<Either<NoteFailure, Unit>> create(Note note);
   Future<Either<NoteFailure, Unit>> update(Note note);
   Future<Either<NoteFailure, Unit>> delete(Note note);
