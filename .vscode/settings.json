@@ -7,5 +7,10 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true
     },
-    "explorerExclude.backup": null
+    "explorerExclude.backup": null,
+    "yaml.schemas": {
+        "https://json.schemastore.org/dart-build": [
+            "build.yaml"
+        ]
+    },
 }
