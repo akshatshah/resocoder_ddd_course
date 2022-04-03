@@ -41,6 +41,7 @@ class TodoList extends StatelessWidget {
             shrinkWrap: true,
             itemCount: formTodos.value.size,
             itemBuilder: (context, index) => TodoTile(
+              key: ValueKey(context.formTodos[index].id),
               index: index,
             ),
           );
@@ -72,7 +73,12 @@ class TodoTile extends HookWidget {
         dismissible: DismissiblePane(onDismissed: () {}),
         children: [
           SlidableAction(
-            onPressed: (_) {},
+            onPressed: (_) {
+              context.formTodos = context.formTodos.minusElement(todo);
+              context
+                  .read<NoteFormBloc>()
+                  .add(NoteFormEvent.todosChanged(context.formTodos));
+            },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
             icon: Icons.delete,
