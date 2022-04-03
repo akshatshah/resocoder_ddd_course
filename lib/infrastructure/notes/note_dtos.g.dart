@@ -12,8 +12,8 @@ _$_NoteDto _$$_NoteDtoFromJson(Map<String, dynamic> json) => _$_NoteDto(
       todos: (json['todos'] as List<dynamic>)
           .map((e) => TodoItemDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      serverTimestamp: const ServerTimestapConverter()
-          .fromJson(json['serverTimestamp'] as Object),
+      serverTimestamp:
+          const ServerTimestapConverter().fromJson(json['serverTimestamp']),
     );
 
 Map<String, dynamic> _$$_NoteDtoToJson(_$_NoteDto instance) =>
